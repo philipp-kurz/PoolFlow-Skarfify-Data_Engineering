@@ -18,23 +18,24 @@ PoolFlow&Skarfify's team of data scientists noticed early on that the type of pr
 ## :dvd: Utilized Data Sets
 To tackle the data challenges the team was facing, four data sources were used. The data sets were provided by Udacity, but no documentation was provided except the source URL.
 
-### 1. Airport Code Table
+### 1. Airport Code Table :airplane:
 The data set features a table of airports around the world. It includes information about the name and IATA abbreviation code (e.g. SFO for San Francisco) of a airport, as well as its geographical location. The data set can be accessed [here](https://datahub.io/core/airport-codes#data).
 
 This data set is useful, as it is a comprehensive list of all potential store locations for PoolFlow&Skarfify.
 
-### 2. I94 Immigration Data
+### 2. I94 Immigration Data :passport_control:
 This data was released by the US National Tourism and Trade Office and contains information about travellers arriving in the US. It details the immigrant's date and port of arrival, gender, age, nationality, reason for immigration and much more. [This](https://www.trade.gov/national-travel-and-tourism-office) is where the data can be requested.
 
 The data is very valuable for PF&S as it shows which airports attract the most travelers and where the travelers come from, which is an important detail for predicting their purchasing behavior.
 
-### 3. World Temperature Data
+### 3. World Temperature Data :thermometer:
 This data set contains information about temperatures in the past in different locations all over the globe. It can be accessed from [Kaggle](https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data).
 
 This data is crucial for the company as a location's temperature and climate directly influences what travelers will buy. For example, if a store is at an airport in Alaska, people entering the country are more likely to pick up mittens and scarves than swimwear. In addition, the temperature data grants insights on the climate of the places where travelers are from. This is useful because when a lot of travelers from let's say Scandinavia visit the state of Maine in the winter, they are likely more prepared for the cold weather than a traveler from South-East Asia and therefore less likely to purchase winter accessories.
 
-### 4. US City Demographic Data
+### 4. US City Demographic Data :family:
 This last data set includes information about US demographics and informs about cities' population and their distribution in terms of gender and country of birth. It comes from [OpenSoft](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/).
 
 The data is useful for PoolFlow&Skarfify, because in the recent past the company not only attracted travelers but also people living in cities closeby. More populous cities therefore mean more potential customers. Furthermore, a high proportion of immigrant population generally correllates with a high share of family members and friends visiting, which, according to the findings of the team of data scientists, are generally less prepared for the weather in a given location than the average traveller.
 
+## Data Model :star:
