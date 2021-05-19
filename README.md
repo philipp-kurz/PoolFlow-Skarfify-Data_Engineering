@@ -45,3 +45,8 @@ The data is useful for PoolFlow&Skarfify, because in the recent past the company
 The central piece of information for PoolFlow&Skarfify is the list of airports that serve as potential store locations. That is why the `airports` table is at the center of the relational star schema. Using airport codes, traveller information from the `immigrants` table can be joined if necessary. Additional temperature information can be added by joining the `temperatures` table to the `airports` and `immigrants` tables either on the city of the airport or the traveler's country of origin. Lastly, data on demographics can be joined from the `us_demographics` table based on a given airport's city.
 
 This schema is ideal for PoolFlow&Skarfify's business use case as it is their goal to find the ideal store location and to figure out which products to sell at a given location. Hence, the company's data scientists always need information that is joined together with a given store location.
+
+## :eyes: Data Exploration and Cleaning
+* Airports:
+  - 
+
