@@ -1,4 +1,5 @@
-# PoolFlow&Skarkify - Data pipeline of an imaginary company
+# <p align="center"> :swimmer: PoolFlow&Skarkify :snowboarder: </p>
+# <p align="center">Data challenges of an imaginary airport retail company </p>
 This repo contains my self-contrived **capstone project** for Udacity's **Data Engineering Nano-Degree** (DEND).
 
 During this online course I learned about various data engineering topics such as relational and NoSQL data modeling, data warehousing, data lakes and data pipelines and gained hands-on experience with their application through different projects. I got especially interested in **Apache Spark** and what it brings to the table in terms of big data processing, and decided to utilize my capstone project to further deepen my learning about Spark.
@@ -38,4 +39,9 @@ This last data set includes information about US demographics and informs about 
 
 The data is useful for PoolFlow&Skarfify, because in the recent past the company not only attracted travelers but also people living in cities closeby. More populous cities therefore mean more potential customers. Furthermore, a high proportion of immigrant population generally correllates with a high share of family members and friends visiting, which, according to the findings of the team of data scientists, are generally less prepared for the weather in a given location than the average traveller.
 
-## Data Model :star:
+## :star: Data Model 
+![Data Model](https://user-images.githubusercontent.com/54779918/118850893-82f98b80-b8d1-11eb-8a4c-2ef5b21f7683.png)
+
+The central piece of information for PoolFlow&Skarfify is the list of airports that serve as potential store locations. That is why the `airports` table is at the center of the relational star schema. Using airport codes, traveller information from the `immigrants` table can be joined if necessary. Additional temperature information can be added by joining the `temperatures` table to the `airports` and `immigrants` tables either on the city of the airport or the traveler's country of origin. Lastly, data on demographics can be joined from the `us_demographics` table based on a given airport's city.
+
+This schema is ideal for PoolFlow&Skarfify's business use case as it is their goal to find the ideal store location and to figure out which products to sell at a given location. Hence, the company's data scientists always need information that is joined together with a given store location.
