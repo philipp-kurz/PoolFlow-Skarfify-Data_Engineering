@@ -59,6 +59,8 @@ This schema is ideal for PoolFlow&Skarfify's business use case as it is the comp
 * ### Temperatures
   - There is one row for every combination of city and month, however many of them have `None` values since no data was available for that month. These rows without actual numerical measurements have to be dropped first.
   - PoolFlow&Skarfify is only interested in relatively recent temperature data, so all data points before 2010 can be dropped.
+* ### Demographics
+  - The share of foreign-born population in a city is not provided implicitly in the data, so it has to be calculated from the absolute total and foreign-born populations in each city first.
 
 ## :dash: Intended Data Pipeline
 - First, the individual data sets are loaded from the data lake using Spark.
@@ -69,11 +71,14 @@ This schema is ideal for PoolFlow&Skarfify's business use case as it is the comp
 
 Spark is used exensively for the data pipeline, as it allows PoolFlow&Skarfify for high flexibility when implementing the pipeline and enormous horizontal scalability when expanding the business to more stores or other countries.
 
-Further intended steps/improvements:
+**Further intended steps/improvements:**
 - The parquet files are used to driectly populate a data warehouse, e.g. Amazon Redshift, which uses the provided data model. This data warehouse is where the company's data scientists access the data for their analyses.
 - The individual steps of the data pipeline can be executed using Apache Airflow to improve the pipeline's maintainability.
 
 ## :question: Data Quality Checks
 
 ## :thought_balloon: Specific Scenario Considerations
-
+**What if...**
+- the data was increased by 100x?
+- the data populates a dashboard that must be updated on a daily basis by 7am every day?
+- the database needed to be accessed by 100+ people?
