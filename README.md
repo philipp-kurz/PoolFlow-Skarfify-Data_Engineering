@@ -86,6 +86,24 @@ A few minimal data quality checks were implemented. In particular, it is checked
 
 ## :thought_balloon: Specific Scenario Considerations
 **What if...**
-- the data was increased by 100x?
-- the data populates a dashboard that must be updated on a daily basis by 7am every day?
-- the database needed to be accessed by 100+ people?
+* the data was increased by 100x?
+  - In terms of storage, the data could be stored in a cloud data lake (e.g. S3), which can hold large amounts of raw data without any issues.
+  - Depending on the required runtime of the ETL job, a more powerful Spark cluster with more nodes might be necessary to speed up processing.
+  - To ensure relatively low runtime of analytical queries, the Redshift cluster might need to be scaled vertically by provisioning a more capable cluster setup.
+* the data populates a dashboard that must be updated on a daily basis by 7am every day?
+  - As previosuly outlined, Apache Airflow and a appropriate Cron execution rule could be used to trigger DAG runs of the ETL pipeline.
+  - Using Airflow, the individual tasks can extract the current date and time from the task execution properties and only load any data that was added during the last 24 hours.
+* the database needed to be accessed by 100+ people?
+  - A more powerful Redshift cluster might be necessary to support enough users.
+  - Respective IAM roles can be created for each user if permissions need to be limited in some way.
+
+## :running: How to run?
+- Clone this repository
+- Find the data sets on the internet from the links specified above
+- Adjust the input paths in `configs.ini`
+- Run `etl.py`
+
+## :white_check_mark: Future To-Dos (once less busy with school)
+- [ ] Apache Airflow: Turn individual processing, quality checking and storing functions into Airflow tasks, and set the task dependencies to create an appropriate DAG
+- [ ] Redshift: Add tasks to load newly created Parquet tables from where they reside (e.g. locally or S3) into Redshift
+- [ ] Analytical queries: Add sample queries for the analytical processes on Redshift done by PoolFlow&Skarfify's data scientists 
