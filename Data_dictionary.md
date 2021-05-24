@@ -49,10 +49,20 @@
 
 ## `temperatures` table
 * `temperature_id`
+  - Unique identifier for a given temperature record
+  - Randomly created UUID upon Spark job execution
 * `city`
+  - City in which a given temperature measurement was recorded
+  - Based on the `City` column in the temperatures data set
 * `country`
+  - Country in which the temperature was recorded
+  - Based on the `Country` column in the temperatures data set
 * `date`
+  - Date at which this temperature measurement was recorded
+  - Based on the `dt` column in the temperatures data set
 * `temperature`
+  - Actual temperature measurement at the given time and location
+  - Based on the `AverageTemperature` column in the temperatures data set
 
 ## `us_demographics` table
 * `us_city`
