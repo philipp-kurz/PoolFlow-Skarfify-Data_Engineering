@@ -67,7 +67,13 @@ This schema is ideal for PoolFlow&Skarfify's business use case as it is the comp
 - Data quality Spark jobs are run to make sure that the data has the required quality.
 - Then, the resulting tables are stored in the read-optimized Parquet data format.
 
+Spark is used exensively for the data pipeline, as it allows PoolFlow&Skarfify for high flexibility when implementing the pipeline and enormous horizontal scalability when expanding the business to more stores or other countries.
+
 Further intended steps/improvements:
 - The parquet files are used to driectly populate a data warehouse, e.g. Amazon Redshift, which uses the provided data model. This data warehouse is where the company's data scientists access the data for their analyses.
 - The individual steps of the data pipeline can be executed using Apache Airflow to improve the pipeline's maintainability.
+
+## :question: Data Quality Checks
+
+## :thought_balloon: Specific Scenario Considerations
 
