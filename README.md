@@ -49,14 +49,25 @@ This schema is ideal for PoolFlow&Skarfify's business use case as it is the comp
 ## :eyes: Data Exploration and Cleaning ##
 
 * ### Airports
-  - The data set includes airports all around the world. For now, however, PoolFlo&Skarfify is only operating in the US, so all airports outside the US can be dropped from the data.
+  - The data set includes airports from all around the world. For now, however, PoolFlo&Skarfify is only operating in the US, so all airports outside the US can be dropped from the data.
   - The data set also contains many smaller airports at which it would be generally impossible to set up a store for the company. Hence, only airports that have an actual IATA code, which indicates busier and generally more important airports, are used.
 * ### Immigration
   - The immigration data set also includes travellers that enter the US by other means than using an aircraft, i.e. through a land border or by boat. PoolFlow&Skarfify is not interested in the statistics on such travelers, and they are therefore filtered out.
   - The country of residency is encoded with an integer identifier. The data scientists, however, are using the country name for their analysis. Therefore, the country strings have to be mapped to the country identifiers first (provided in `data_mappings.py`).
   - A similar mapping has to be applied to the visa type, which is also only in the form of an integer identifier in the raw data.
   - The arrival date is encoded in the SAS date format, i.e. the number of days since January 1st, 1960. The data scientists use a standard YYYY-MM-DD format, i.e. the data has to be cleaned accordingly.
-* Temperatures
+* ### Temperatures
   - There is one row for every combination of city and month, however many of them have `None` values since no data was available for that month. These rows without actual numerical measurements have to be dropped first.
   - PoolFlow&Skarfify is only interested in relatively recent temperature data, so all data points before 2010 can be dropped.
+
+## :dash: Intended Data Pipeline
+- First, the individual data sets are loaded from the data lake using Spark.
+- Using Spark, rows and columns of interest are selected and the remaining data is cleaned according to the steps outlined before.
+- The data is shaped into Spark dataframes that adhere to the previously outlined data model.
+- Data quality Spark jobs are run to make sure that the data has the required quality.
+- Then, the resulting tables are stored in the read-optimized Parquet data format.
+
+Further intended steps/improvements:
+- The parquet files are used to driectly populate a data warehouse, e.g. Amazon Redshift, which uses the provided data model. This data warehouse is where the company's data scientists access the data for their analyses.
+- The individual steps of the data pipeline can be executed using Apache Airflow to improve the pipeline's maintainability.
 
