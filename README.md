@@ -76,6 +76,13 @@ Spark is used exensively for the data pipeline, as it allows PoolFlow&Skarfify f
 - The individual steps of the data pipeline can be executed using Apache Airflow to improve the pipeline's maintainability.
 
 ## :question: Data Quality Checks
+A few minimal data quality checks were implemented. In particular, it is checked whether...
+- the immigrants table contains (new) entries,
+- the age of any traveler in the immigrants table is negative,
+- any of the arrival dates in the immigration table is older than the date of the last ETL job run,
+- all airport IDs have valid values,
+- any of the measurements in the temperature table are empty, and whether
+- the total population of any city in the demographics table is negative.
 
 ## :thought_balloon: Specific Scenario Considerations
 **What if...**
