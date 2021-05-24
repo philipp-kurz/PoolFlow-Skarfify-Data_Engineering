@@ -33,9 +33,19 @@
   - Age of the traveler entering the US
   - Based on the `i94bir` column of the I94 immigration data set
 * `gender`
+  - Gender of a given traveler
+  - Directly based on the `gender` column in the I94 immigration data set
 * `airline`
+  - Airline which the traveler used to fly to the US
+  - Directly based on the `airline` column in the I94 immigration data set
 * `visa_type`
+  - Visa type (e.g. Business, Student, or Leisure) that the traveler has
+  - Based on the `i94visa` column of the I94 immigration data set 
+  - A value-to-string mapping of the individual values has to be applied to the raw data first (see `visa_type_mapping` in `data_mappings.py`)
 * `residency`
+  - The travelers' country of residency
+  - Based on the `i94res` column of the I94 immigration data set
+  - A value-to-string mapping of the individual values has to be applied to the raw data first (see `country_mapping` in `data_mappings.py`)
 
 ## `temperatures` table
 * `temperature_id`
