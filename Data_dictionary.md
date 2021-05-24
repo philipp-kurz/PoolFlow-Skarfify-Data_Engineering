@@ -66,7 +66,18 @@
 
 ## `us_demographics` table
 * `us_city`
+  - Unique identifier of that US city
+  - Name of the city
+  - Based on the `City` column in the US demographics data set
 * `total_pop`
+  - Total population of the given city
+  - Based on the `Total Population` column in the US demographics data set
 * `median_age`
+  - Median age of a given city's population
+  - Based on the `Median Age` column of the US demographics data set
 * `foreign_born_pop`
+  - Absolute number of people in a given city that were born outside the US
+  - Based on the `Foreign-born` column of the US demographics data set
 * `fraction_foreign_born`
+  - Percentage of people in a given city that were not born in the US
+  - Calculated from the `foreign_born_pop` and `total_pop` columns
